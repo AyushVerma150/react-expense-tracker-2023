@@ -38,7 +38,6 @@ const ExpenseItem = ({ itemName, cost, date, id, editHandler }) => {
               style={{
                 fontSize: '14px',
                 color: 'grey',
-                // fontWeight: 'bold',
                 fontStyle: 'italic',
               }}
             >
@@ -52,9 +51,10 @@ const ExpenseItem = ({ itemName, cost, date, id, editHandler }) => {
           style={{
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'center',
+            justifyContent: 'space-evenly',
             gridGap: '12px',
             fontWeight: '600px',
+            position: 'relative',
           }}
         >
           <div>
@@ -71,11 +71,14 @@ const ExpenseItem = ({ itemName, cost, date, id, editHandler }) => {
             <span>{'₹' + cost}</span>
           </div>
           <FontAwesomeIcon
+            title="Click to Edit the Item"
             onClick={onClickHandler}
             style={{
-              fontSize: '16px',
-              fontWeight: 'bolder',
-              opacity: '1',
+              position: 'absolute',
+              top: '-65%',
+              right: '-30%',
+              fontSize: '24px',
+              color: '#CF9FFF',
             }}
             icon={faEdit}
           />

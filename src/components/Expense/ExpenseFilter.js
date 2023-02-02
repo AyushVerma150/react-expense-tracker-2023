@@ -1,47 +1,74 @@
 const ExpenseFilter = () => {
   return (
-    <div
-      style={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-evenly',
-        margin: '10px auto',
-      }}
-    >
-      {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((val) => {
-        return (
-          <div
-            key={'list' + val}
-            style={{ display: 'block', textAlign: 'center' }}
-          >
+    <div style={{ padding: '20px 20px' }}>
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+        }}
+      >
+        <div>
+          <h3 style={{ paddingLeft: '15' }}> Filter Expense by Year</h3>
+        </div>
+        <div>Current Year - 2023</div>
+      </div>
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-evenly',
+          margin: '10px auto',
+        }}
+      >
+        {[
+          'Jan',
+          'Feb',
+          'Mar',
+          'Apr',
+          'May',
+          'Jun',
+          'Jul',
+          'Aug',
+          'Sep',
+          'Oct',
+          'Nov',
+          'Dec',
+        ].map((val) => {
+          return (
             <div
-              style={{
-                height: '120px',
-                width: '20px',
-                borderRadius: '0.375rem',
-                zIndex: '999',
-                boxShadow:
-                  'rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px',
-                transform: 'rotate(180deg) scaleX(-1)',
-                margin: '10px',
-                background: 'white',
-              }}
+              key={'list' + val}
+              style={{ display: 'block', textAlign: 'center' }}
             >
               <div
                 style={{
-                  height: Math.floor(Math.random() * 100),
-                  width: '100%',
-                  background: '#CF9FFF',
-                  opacity: '0.8',
-                  zIndex: '9',
+                  height: '120px',
+                  width: '16px',
                   borderRadius: '0.375rem',
+                  zIndex: '999',
+                  border: '1px solid purple',
+                  transform: 'rotate(180deg) scaleX(-1)',
+                  background: 'white',
+                  overflow: 'hidden',
                 }}
-              ></div>
+              >
+                <div
+                  style={{
+                    height: Math.floor(Math.random() * 100),
+                    width: '100%',
+                    background: '#CF9FFF',
+                    borderRadiusBottomLeft: '0.375rem',
+                    borderRadiusBottomRight: '0.375rem',
+                    borderTopLeftRadius: '0',
+                    borderTopRightRadius: '0',
+                  }}
+                ></div>
+              </div>
+              <div>{val}</div>
             </div>
-            <div>{val}</div>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
     </div>
   );
 };
