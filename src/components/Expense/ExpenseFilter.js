@@ -18,7 +18,8 @@ const ExpenseFilter = () => {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-evenly',
-          margin: '10px auto',
+          margin: '0px auto',
+          // padding: '5px 5px',
         }}
       >
         {[

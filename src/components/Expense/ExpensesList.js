@@ -2,7 +2,7 @@ import ExpenseItem from './ExpenseItem';
 
 const ExpensesList = ({ productsInfo, editHandler }) => {
   return (
-    <div>
+    <div style={{ padding: '10px 10px' }}>
       {productsInfo.map(({ itemName, date, cost, id }) => {
         return (
           <ExpenseItem
