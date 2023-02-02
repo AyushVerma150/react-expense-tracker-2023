@@ -1,0 +1,134 @@
+import { useEffect, useState } from 'react';
+
+const AddEditExpense = ({ edit, editInfo, addEditHandler }) => {
+  const [productTitle, setProductTitle] = useState(edit ? editInfo.title : '');
+  const [productCost, setProductCost] = useState(edit ? editInfo.cost : 0);
+
+  useEffect(() => {
+    if (edit && editInfo) {
+      setProductTitle(editInfo.title);
+      setProductCost(editInfo.cost);
+    }
+  }, [edit, editInfo]);
+
+  const onChangeHandler = (event) => {
+    if (event.target.name === 'title') {
+      setProductTitle(event.target.value);
+    } else {
+      setProductCost(event.target.value);
+    }
+  };
+
+  const onSaveClickHandler = () => {
+    addEditHandler(
+      { title: productTitle, cost: productCost, id: edit ? editInfo.id : null },
+      edit
+    );
+
+    //Reset Values
+    setProductTitle('');
+    setProductCost(0);
+  };
+
+  return (
+    <div style={{ width: '78%', margin: '0 auto ', color: 'white' }}>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          onSaveClickHandler();
+        }}
+        style={{
+          width: '60%',
+          margin: '0 auto',
+          background: 'purple',
+          textAlign: 'cenetr',
+          minHeight: 'max-content',
+          borderRadius: '0.375rem',
+          padding: '20px 15px',
+        }}
+      >
+        <h3
+          style={{ textAlign: 'center', padding: '5px 5px', fontWeight: '300' }}
+        >
+          Enter New Product Details
+        </h3>
+        <div
+          style={{
+            display: 'flex',
+            alignContent: 'center',
+            justifyContent: 'center',
+            gridGap: '10px',
+            padding: '10px 10px',
+          }}
+        >
+          <label style={{ fontWeight: '600' }}>Name</label>
+          <input
+            name="title"
+            onChange={onChangeHandler}
+            style={{
+              outline: 'none',
+              border: 'none',
+              minHeight: '30px',
+              fontStyle: 'italic',
+              borderRadius: '0.375rem',
+              minWidth: '250px',
+            }}
+            placeholder="Enter Product"
+            value={productTitle}
+            type={'text'}
+          />
+        </div>
+        <div
+          style={{
+            display: 'flex',
+            alignContent: 'center',
+            justifyContent: 'center',
+            gridGap: '10px',
+            padding: '10px 10px',
+          }}
+        >
+          <label style={{ fontWeight: '600' }}>Cost</label>
+          <input
+            name="cost"
+            onChange={(e) => {
+              onChangeHandler(e);
+            }}
+            style={{
+              outline: 'none',
+              border: 'none',
+              minHeight: '30px',
+              fontStyle: 'italic',
+              borderRadius: '0.375rem',
+              minWidth: '250px',
+            }}
+            placeholder="Enter Cost"
+            value={productCost === 0 ? '' : productCost}
+            type={'number'}
+            min="0.01"
+            step="0.01"
+          />
+        </div>
+
+        <div style={{ textAlign: 'right', margin: '0 auto' }}>
+          <button
+            style={{
+              background: '#FFF0F5',
+              border: 'none',
+              outline: 'none',
+              color: 'white',
+              minHeight: '45px',
+              minWidth: '70px',
+              borderRadius: '0.375rem',
+              color: 'black',
+              fontWeight: '350',
+            }}
+          >
+            Save
+          </button>
+        </div>
+      </form>
+    </div>
+  );
+};
+
+export default AddEditExpense;
