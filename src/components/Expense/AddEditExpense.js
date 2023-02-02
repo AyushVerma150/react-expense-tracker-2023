@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 const AddEditExpense = ({ edit, editInfo, addEditHandler }) => {
   const [productTitle, setProductTitle] = useState(edit ? editInfo.title : '');
-  const [productCost, setProductCost] = useState(edit ? editInfo.cost : 0);
+  const [productCost, setProductCost] = useState(edit ? editInfo.cost : '');
 
   useEffect(() => {
     if (edit && editInfo) {
@@ -27,7 +27,7 @@ const AddEditExpense = ({ edit, editInfo, addEditHandler }) => {
 
     //Reset Values
     setProductTitle('');
-    setProductCost(0);
+    setProductCost(null);
   };
 
   return (
@@ -80,6 +80,7 @@ const AddEditExpense = ({ edit, editInfo, addEditHandler }) => {
             placeholder="Enter Product"
             value={productTitle}
             type={'text'}
+            autoFocus
           />
         </div>
         <div
@@ -104,7 +105,7 @@ const AddEditExpense = ({ edit, editInfo, addEditHandler }) => {
               minWidth: '250px',
             }}
             placeholder="Enter Cost"
-            value={productCost === 0 ? '' : productCost}
+            value={productCost ? productCost : ''}
             type={'number'}
             min="0.01"
             step="0.01"
