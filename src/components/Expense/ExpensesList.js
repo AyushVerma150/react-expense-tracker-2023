@@ -1,5 +1,3 @@
-import { useEffect, useState } from 'react';
-import Card from '../UI/Card';
 import ExpenseItem from './ExpenseItem';
 
 const ExpensesList = ({ productsInfo, editHandler }) => {
@@ -8,7 +6,7 @@ const ExpensesList = ({ productsInfo, editHandler }) => {
       {productsInfo.map(({ itemName, date, cost, id }) => {
         return (
           <ExpenseItem
-            id={id}
+            key={'li' + id}
             cost={cost}
             date={date}
             itemName={itemName}

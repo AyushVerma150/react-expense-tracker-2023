@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import AppHeader from './components/UI/AppHeader';
 import ExpensesList from './components/Expense/ExpensesList';
 import AddEditExpense from './components/Expense/AddEditExpense';
 import ExpenseFilter from './components/Expense/ExpenseFilter';
 
 const App = () => {
-  // default Values
+  // default Value
   const [productsInfo, setProductInfo] = useState([
     { id: 'av-1', itemName: ' Pepsi', cost: '25', date: new Date() },
     { id: 'av-2', itemName: ' Chips', cost: '25', date: new Date() },

@@ -2,7 +2,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Card from '../UI/Card';
 import ExpenseDate from './ExpenseDate';
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
-import { useState } from 'react';
 
 const ExpenseItem = ({ itemName, cost, date, id, editHandler }) => {
   const onClickHandler = () => {

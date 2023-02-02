@@ -117,7 +117,6 @@ const AddEditExpense = ({ edit, editInfo, addEditHandler }) => {
               background: '#CF9FFF',
               border: 'none',
               outline: 'none',
-              color: 'white',
               minHeight: '45px',
               minWidth: '70px',
               borderRadius: '0.375rem',

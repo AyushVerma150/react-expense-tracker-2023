@@ -2,19 +2,18 @@ const ExpenseFilter = () => {
   return (
     <div
       style={{
-        // width: '75%',
-        // width: '75%',
-        // background: '#CCCCFF',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-evenly',
-        // padding: '15px 15px',
         margin: '10px auto',
       }}
     >
       {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((val) => {
         return (
-          <div style={{ display: 'block', textAlign: 'center' }}>
+          <div
+            key={'list' + val}
+            style={{ display: 'block', textAlign: 'center' }}
+          >
             <div
               style={{
                 height: '120px',
