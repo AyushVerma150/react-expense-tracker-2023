@@ -13,7 +13,6 @@ const ExpenseItem = ({ itemName, cost, date, id, editHandler }) => {
   return (
     <Card
       style={{
-        backgroundColor: '#FFF',
         fontWeight: '400',
         display: 'block',
       }}
@@ -32,11 +31,17 @@ const ExpenseItem = ({ itemName, cost, date, id, editHandler }) => {
             width: '100%',
             padding: '5px 5px',
             alignItems: 'center',
+            fontWeight: '600px',
           }}
         >
           <div>
             <span
-              style={{ fontSize: '11px', color: 'grey', fontStyle: 'italic' }}
+              style={{
+                fontSize: '14px',
+                color: 'grey',
+                // fontWeight: 'bold',
+                fontStyle: 'italic',
+              }}
             >
               Item Name
             </span>
@@ -50,11 +55,16 @@ const ExpenseItem = ({ itemName, cost, date, id, editHandler }) => {
             alignItems: 'center',
             justifyContent: 'center',
             gridGap: '12px',
+            fontWeight: '600px',
           }}
         >
           <div>
             <span
-              style={{ fontSize: '11px', color: 'grey', fontStyle: 'italic' }}
+              style={{
+                fontSize: '14px',
+                color: 'grey',
+                fontStyle: 'italic',
+              }}
             >
               Expense
             </span>
@@ -64,8 +74,7 @@ const ExpenseItem = ({ itemName, cost, date, id, editHandler }) => {
           <FontAwesomeIcon
             onClick={onClickHandler}
             style={{
-              color: 'grey',
-              fontSize: '14px',
+              fontSize: '16px',
               fontWeight: 'bolder',
               opacity: '1',
             }}

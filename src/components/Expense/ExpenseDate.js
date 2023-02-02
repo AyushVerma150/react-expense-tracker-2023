@@ -4,7 +4,7 @@ const ExpenseDate = ({ date }) => {
       <div
         style={{
           display: 'block',
-          backgroundColor: '#FFF0F5',
+          backgroundColor: '#CCCCFF',
           textAlign: 'center',
           padding: '5px 5px',
           borderRadius: '0.375rem',

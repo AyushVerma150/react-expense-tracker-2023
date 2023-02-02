@@ -31,20 +31,26 @@ const AddEditExpense = ({ edit, editInfo, addEditHandler }) => {
   };
 
   return (
-    <div style={{ width: '78%', margin: '0 auto ', color: 'white' }}>
+    <div
+      style={{
+        width: '100%',
+        margin: '0 auto ',
+        color: 'white',
+      }}
+    >
       <form
         onSubmit={(e) => {
           e.preventDefault();
           onSaveClickHandler();
         }}
         style={{
-          width: '60%',
+          width: '75%',
           margin: '0 auto',
-          background: 'purple',
           textAlign: 'cenetr',
           minHeight: 'max-content',
           borderRadius: '0.375rem',
           padding: '20px 15px',
+          color: 'black',
         }}
       >
         <h3
@@ -66,8 +72,6 @@ const AddEditExpense = ({ edit, editInfo, addEditHandler }) => {
             name="title"
             onChange={onChangeHandler}
             style={{
-              outline: 'none',
-              border: 'none',
               minHeight: '30px',
               fontStyle: 'italic',
               borderRadius: '0.375rem',
@@ -94,8 +98,6 @@ const AddEditExpense = ({ edit, editInfo, addEditHandler }) => {
               onChangeHandler(e);
             }}
             style={{
-              outline: 'none',
-              border: 'none',
               minHeight: '30px',
               fontStyle: 'italic',
               borderRadius: '0.375rem',
@@ -109,10 +111,10 @@ const AddEditExpense = ({ edit, editInfo, addEditHandler }) => {
           />
         </div>
 
-        <div style={{ textAlign: 'right', margin: '0 auto' }}>
+        <div style={{ textAlign: 'center', margin: '0 auto' }}>
           <button
             style={{
-              background: '#FFF0F5',
+              background: '#CF9FFF',
               border: 'none',
               outline: 'none',
               color: 'white',

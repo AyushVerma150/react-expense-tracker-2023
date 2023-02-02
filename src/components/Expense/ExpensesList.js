@@ -4,7 +4,7 @@ import ExpenseItem from './ExpenseItem';
 
 const ExpensesList = ({ productsInfo, editHandler }) => {
   return (
-    <Card>
+    <div>
       {productsInfo.map(({ itemName, date, cost, id }) => {
         return (
           <ExpenseItem
@@ -16,7 +16,7 @@ const ExpensesList = ({ productsInfo, editHandler }) => {
           />
         );
       })}
-    </Card>
+    </div>
   );
 };
 

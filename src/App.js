@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import AppHeader from './components/UI/AppHeader';
 import ExpensesList from './components/Expense/ExpensesList';
 import AddEditExpense from './components/Expense/AddEditExpense';
+import ExpenseFilter from './components/Expense/ExpenseFilter';
 
 const App = () => {
   // default Values
@@ -63,13 +64,23 @@ const App = () => {
   };
 
   return (
-    <div>
+    <div
+      style={{
+        width: '75%',
+        margin: '0px auto',
+        boxShadow:
+          'rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px',
+        // margin: '15px',
+        padding: '0 0 10px 0px',
+      }}
+    >
       <AppHeader />
       <AddEditExpense
         edit={editEnabled}
         editInfo={editInfo}
         addEditHandler={addEditExpenseHandler}
       />
+      <ExpenseFilter />
       <ExpensesList productsInfo={productsInfo} editHandler={editHandler} />
     </div>
   );
