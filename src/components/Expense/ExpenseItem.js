@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Card from '../UI/Card';
 import ExpenseDate from './ExpenseDate';
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
+import './Expense.css';
 
 const ExpenseItem = ({ itemName, cost, date, id, editHandler }) => {
   const onClickHandler = () => {
@@ -28,7 +29,7 @@ const ExpenseItem = ({ itemName, cost, date, id, editHandler }) => {
           style={{
             display: 'flex',
             width: '100%',
-            padding: '5px 5px',
+            padding: '15px 10px',
             alignItems: 'center',
             fontWeight: '600px',
           }}
@@ -51,13 +52,13 @@ const ExpenseItem = ({ itemName, cost, date, id, editHandler }) => {
           style={{
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'space-evenly',
-            gridGap: '12px',
+            justifyContent: 'space-between',
             fontWeight: '600px',
             position: 'relative',
+            // minWidth: '25%',
           }}
         >
-          <div>
+          <div style={{ padding: '15px' }}>
             <span
               style={{
                 fontSize: '14px',
@@ -73,13 +74,7 @@ const ExpenseItem = ({ itemName, cost, date, id, editHandler }) => {
           <FontAwesomeIcon
             title="Click to Edit the Item"
             onClick={onClickHandler}
-            style={{
-              position: 'absolute',
-              top: '-65%',
-              right: '-30%',
-              fontSize: '24px',
-              color: '#CF9FFF',
-            }}
+            className="product-list--icon"
             icon={faEdit}
           />
         </div>

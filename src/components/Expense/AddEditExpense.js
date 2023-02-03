@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 
 const AddEditExpense = ({ edit, editInfo, addEditHandler }) => {
-  const [productTitle, setProductTitle] = useState(edit ? editInfo.title : '');
-  const [productCost, setProductCost] = useState(edit ? editInfo.cost : '');
+  const [productTitle, setProductTitle] = useState('');
+  const [productCost, setProductCost] = useState('');
 
   useEffect(() => {
     if (edit && editInfo) {

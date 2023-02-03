@@ -1,4 +1,6 @@
-const ExpenseFilter = () => {
+import { useEffect, useState } from 'react';
+
+const ExpenseFilter = ({ expenseData, selectedYear, setSelectedYear }) => {
   return (
     <div style={{ padding: '20px 20px' }}>
       <div
@@ -11,7 +13,18 @@ const ExpenseFilter = () => {
         <div>
           <h3 style={{ paddingLeft: '15' }}> Filter Expense by Year</h3>
         </div>
-        <div>Current Year - 2023</div>
+        <select
+          style={{ width: '140px', height: '35px' }}
+          onChange={(e) => {
+            setSelectedYear(e.target.value);
+          }}
+          value={selectedYear}
+          name="pets"
+          id="year-select"
+        >
+          <option value="2022">2022</option>
+          <option value="2023">2023</option>
+        </select>
       </div>
       <div
         style={{
@@ -23,22 +36,22 @@ const ExpenseFilter = () => {
         }}
       >
         {[
-          'Jan',
-          'Feb',
-          'Mar',
-          'Apr',
-          'May',
-          'Jun',
-          'Jul',
-          'Aug',
-          'Sep',
-          'Oct',
-          'Nov',
-          'Dec',
-        ].map((val) => {
+          { month: 0, name: 'Jan' },
+          { month: 1, name: 'Feb' },
+          { month: 2, name: 'Mar' },
+          { month: 3, name: 'Apr' },
+          { month: 4, name: 'May' },
+          { month: 5, name: 'Jun' },
+          { month: 6, name: 'Jul' },
+          { month: 7, name: 'Aug' },
+          { month: 8, name: 'Sep' },
+          { month: 9, name: 'Oct' },
+          { month: 10, name: 'Nov' },
+          { month: 11, name: 'Dec' },
+        ].map(({ name, month }) => {
           return (
             <div
-              key={'list' + val}
+              key={'list' + name}
               style={{ display: 'block', textAlign: 'center' }}
             >
               <div
@@ -55,7 +68,12 @@ const ExpenseFilter = () => {
               >
                 <div
                   style={{
-                    height: Math.floor(Math.random() * 100),
+                    height:
+                      expenseData.overAllExpense > 0 && expenseData[month] > 0
+                        ? (expenseData[month] / expenseData.overAllExpense) *
+                            100 +
+                          '%'
+                        : 0,
                     width: '100%',
                     background: '#CF9FFF',
                     borderRadiusBottomLeft: '0.375rem',
@@ -65,7 +83,7 @@ const ExpenseFilter = () => {
                   }}
                 ></div>
               </div>
-              <div>{val}</div>
+              <div>{name}</div>
             </div>
           );
         })}

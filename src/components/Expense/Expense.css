@@ -1,0 +1,8 @@
+.product-list--icon {
+    color: #566265;
+    font-size: larger;
+}
+
+.product-list--icon:hover {
+    color: black;
+}
