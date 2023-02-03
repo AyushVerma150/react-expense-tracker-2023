@@ -1,5 +1,3 @@
-import { useEffect, useState } from 'react';
-
 const ExpenseFilter = ({ expenseData, selectedYear, setSelectedYear }) => {
   return (
     <div style={{ padding: '20px 20px' }}>

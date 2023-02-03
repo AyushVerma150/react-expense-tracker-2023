@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import AppHeader from './components/UI/AppHeader';
 import ExpensesList from './components/Expense/ExpensesList';
 import AddEditExpense from './components/Expense/AddEditExpense';
@@ -109,7 +109,7 @@ const App = () => {
     }
   };
   
-  const evaluateExpensesByYear = () => {
+  const evaluateExpensesByYear = useCallback( () => {
     let expenseInfo = {};
     const yearInfo = productsInfo.filter((o) => {
       return o.date.getFullYear().toString() === selectedYear.toString();
@@ -129,20 +129,20 @@ const App = () => {
       }
     });
     setExpenseData({ ...expenseInfo, overAllExpense });
-  };
+  } , [productsInfo, selectedYear]);
 
 
   useEffect(() => {
     if (productsInfo.length) {
       evaluateExpensesByYear();
     }
-  }, [selectedYear, productsInfo]);
+  }, [selectedYear, productsInfo, evaluateExpensesByYear]);
 
   useEffect(() => {
     if (productsInfo.length) {
       evaluateExpensesByYear();
     }
-  }, [productsInfo, productsInfo]);
+  }, [selectedYear, productsInfo, evaluateExpensesByYear]);
 
   const editHandler = (title, cost, id) => {
     if (title && cost) {
