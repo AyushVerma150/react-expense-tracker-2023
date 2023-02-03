@@ -70,29 +70,6 @@ const App = () => {
   const [editInfo, setEditInfo] = useState(null);
   const [editEnabled, setEditEnabled] = useState(false);
 
-  useEffect(() => {
-    if (productsInfo.length) {
-      evaluateExpensesByYear();
-    }
-  }, [selectedYear]);
-
-  useEffect(() => {
-    if (productsInfo.length) {
-      evaluateExpensesByYear();
-    }
-  }, [productsInfo]);
-
-  const editHandler = (title, cost, id) => {
-    if (title && cost) {
-      setEditEnabled(true);
-      setEditInfo({
-        title,
-        cost,
-        id,
-      });
-    }
-  };
-
   const addEditExpenseHandler = (product, edit = false) => {
     if (edit) {
       if (product && product.title.length && product.cost.length) {
@@ -131,7 +108,7 @@ const App = () => {
       setEditInfo(null);
     }
   };
-
+  
   const evaluateExpensesByYear = () => {
     let expenseInfo = {};
     const yearInfo = productsInfo.filter((o) => {
@@ -152,6 +129,30 @@ const App = () => {
       }
     });
     setExpenseData({ ...expenseInfo, overAllExpense });
+  };
+
+
+  useEffect(() => {
+    if (productsInfo.length) {
+      evaluateExpensesByYear();
+    }
+  }, [selectedYear, productsInfo]);
+
+  useEffect(() => {
+    if (productsInfo.length) {
+      evaluateExpensesByYear();
+    }
+  }, [productsInfo, productsInfo]);
+
+  const editHandler = (title, cost, id) => {
+    if (title && cost) {
+      setEditEnabled(true);
+      setEditInfo({
+        title,
+        cost,
+        id,
+      });
+    }
   };
 
   return (
