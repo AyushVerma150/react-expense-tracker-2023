@@ -66,6 +66,7 @@ const App = () => {
     },
     { id: "av-11", itemName: " Pizza", cost: "25", date: new Date(2022, 3, 3) },
   ]);
+  const [enabledAddEditExpense, setEnableAddEditExpense] = useState(false);
 
   const [editInfo, setEditInfo] = useState(null);
   const [editEnabled, setEditEnabled] = useState(false);
@@ -148,6 +149,10 @@ const App = () => {
     }
   };
 
+  const enableAddEditDrawer = () => {
+    setEnableAddEditExpense((prev) => !prev);
+  };
+
   return (
     <div
       style={{
@@ -163,6 +168,8 @@ const App = () => {
         edit={editEnabled}
         editInfo={editInfo}
         addEditHandler={addEditExpenseHandler}
+        addEditEnabled={enabledAddEditExpense}
+        addEditEnableHandler={enableAddEditDrawer}
       />
       <ExpenseFilter
         expenseData={expenseData}
