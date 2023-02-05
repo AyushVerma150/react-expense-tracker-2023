@@ -1,6 +1,12 @@
 import ExpenseItem from "./ExpenseItem";
 
-const ExpensesList = ({ productsInfo, editHandler, selectedYear }) => {
+const ExpensesList = ({
+  productsInfo,
+  editHandler,
+  selectedYear,
+  addEditEnabled,
+  addEditEnableHandler,
+}) => {
   productsInfo = productsInfo.filter(
     (o) => o.date.getFullYear().toString() === selectedYear.toString()
   );
@@ -9,7 +15,7 @@ const ExpensesList = ({ productsInfo, editHandler, selectedYear }) => {
       {productsInfo.length ? (
         productsInfo.map(({ itemName, date, cost, id }) => {
           return (
-            <ExpenseItem  
+            <ExpenseItem
               id={id}
               key={"li" + id}
               cost={cost}
@@ -17,6 +23,8 @@ const ExpensesList = ({ productsInfo, editHandler, selectedYear }) => {
               itemName={itemName}
               editHandler={editHandler}
               selectedYear={selectedYear}
+              addEditEnabled={addEditEnabled}
+              addEditEnableHandler={addEditEnableHandler}
             />
           );
         })

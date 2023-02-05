@@ -179,6 +179,8 @@ const App = () => {
         editHandler={editHandler}
         selectedYear={selectedYear}
         productsInfo={productsInfo}
+        addEditEnabled={enabledAddEditExpense}
+        addEditEnableHandler={enableAddEditDrawer}
       />
     </div>
   );

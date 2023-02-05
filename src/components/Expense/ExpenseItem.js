@@ -10,11 +10,17 @@ const ExpenseItem = ({
   date,
   id,
   editHandler,
-  selectedYear,
+  addEditEnabled,
+  addEditEnableHandler,
 }) => {
   const onClickHandler = () => {
     //Update Product Name :
     editHandler(itemName, cost, id);
+    // We need to open the AddEditExpense Drawer As well
+
+    if (!addEditEnabled) {
+      addEditEnableHandler();
+    }
   };
 
   return (
