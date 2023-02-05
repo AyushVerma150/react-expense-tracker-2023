@@ -4,25 +4,34 @@ const ExpenseFilter = ({ expenseData, selectedYear, setSelectedYear }) => {
       <div
         style={{
           display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
+          justifyContent: "flex-end",
+          width: "94%",
         }}
       >
-        <div>
-          <h3 style={{ paddingLeft: "15" }}> Filter Expense by Year </h3>
-        </div>
-        <select
-          style={{ width: "140px", height: "35px" }}
-          onChange={(e) => {
-            setSelectedYear(e.target.value);
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-around",
+            gridGap: "12px",
           }}
-          value={selectedYear}
-          name="pets"
-          id="year-select"
         >
-          <option value="2022"> 2022 </option>
-          <option value="2023"> 2023 </option>
-        </select>
+          <div>
+            <h4>Filter By</h4>
+          </div>
+          <select
+            style={{ width: "140px", height: "35px" }}
+            onChange={(e) => {
+              setSelectedYear(e.target.value);
+            }}
+            value={selectedYear}
+            name="pets"
+            id="year-select"
+          >
+            <option value="2022"> 2022 </option>
+            <option value="2023"> 2023 </option>
+          </select>
+        </div>
       </div>
       <div
         style={{

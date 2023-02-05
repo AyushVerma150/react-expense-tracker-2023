@@ -170,7 +170,7 @@ const AddEditExpense = ({
           style={{
             padding: "10px 10px",
             color: "black",
-            maxWidth: "65%",
+            maxWidth: "55%",
             margin: "10px auto",
             textAlign: "center",
             background: "#8F1FFF",
