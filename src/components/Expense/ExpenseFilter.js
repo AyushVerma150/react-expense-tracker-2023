@@ -9,8 +9,8 @@ const ExpenseFilter = ({ expenseData, selectedYear, setSelectedYear }) => {
         }}
       >
         <div>
-          <h3 style={{ paddingLeft: '15' }}> Filter Expense by Year</h3>
-        </div>
+          <h3 style={{ paddingLeft: '15' }}> Filter Expense by Year </h3>{' '}
+        </div>{' '}
         <select
           style={{ width: '140px', height: '35px' }}
           onChange={(e) => {
@@ -20,10 +20,10 @@ const ExpenseFilter = ({ expenseData, selectedYear, setSelectedYear }) => {
           name="pets"
           id="year-select"
         >
-          <option value="2022">2022</option>
-          <option value="2023">2023</option>
-        </select>
-      </div>
+          <option value="2022"> 2022 </option>{' '}
+          <option value="2023"> 2023 </option>{' '}
+        </select>{' '}
+      </div>{' '}
       <div
         style={{
           display: 'flex',
@@ -33,6 +33,7 @@ const ExpenseFilter = ({ expenseData, selectedYear, setSelectedYear }) => {
           // padding: '5px 5px',
         }}
       >
+        {' '}
         {[
           { month: 0, name: 'Jan' },
           { month: 1, name: 'Feb' },
@@ -79,13 +80,13 @@ const ExpenseFilter = ({ expenseData, selectedYear, setSelectedYear }) => {
                     borderTopLeftRadius: '0',
                     borderTopRightRadius: '0',
                   }}
-                ></div>
-              </div>
-              <div>{name}</div>
+                ></div>{' '}
+              </div>{' '}
+              <div> {name} </div>{' '}
             </div>
           );
-        })}
-      </div>
+        })}{' '}
+      </div>{' '}
     </div>
   );
 };

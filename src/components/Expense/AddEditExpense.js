@@ -56,8 +56,8 @@ const AddEditExpense = ({ edit, editInfo, addEditHandler }) => {
         <h3
           style={{ textAlign: 'center', padding: '5px 5px', fontWeight: '300' }}
         >
-          Enter New Product Details
-        </h3>
+          Enter New Product Details{' '}
+        </h3>{' '}
         <div
           style={{
             display: 'flex',
@@ -67,7 +67,7 @@ const AddEditExpense = ({ edit, editInfo, addEditHandler }) => {
             padding: '10px 10px',
           }}
         >
-          <label style={{ fontWeight: '600' }}>Name</label>
+          <label style={{ fontWeight: '600' }}> Name </label>{' '}
           <input
             name="title"
             onChange={onChangeHandler}
@@ -82,7 +82,7 @@ const AddEditExpense = ({ edit, editInfo, addEditHandler }) => {
             type={'text'}
             autoFocus
           />
-        </div>
+        </div>{' '}
         <div
           style={{
             display: 'flex',
@@ -92,7 +92,7 @@ const AddEditExpense = ({ edit, editInfo, addEditHandler }) => {
             padding: '10px 10px',
           }}
         >
-          <label style={{ fontWeight: '600' }}>Cost</label>
+          <label style={{ fontWeight: '600' }}> Cost </label>{' '}
           <input
             name="cost"
             onChange={(e) => {
@@ -111,7 +111,6 @@ const AddEditExpense = ({ edit, editInfo, addEditHandler }) => {
             step="0.01"
           />
         </div>
-
         <div style={{ textAlign: 'center', margin: '0 auto' }}>
           <button
             style={{
@@ -125,10 +124,10 @@ const AddEditExpense = ({ edit, editInfo, addEditHandler }) => {
               fontWeight: '350',
             }}
           >
-            Save
-          </button>
-        </div>
-      </form>
+            Save{' '}
+          </button>{' '}
+        </div>{' '}
+      </form>{' '}
     </div>
   );
 };

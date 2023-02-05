@@ -4,68 +4,71 @@ import ExpensesList from './components/Expense/ExpensesList';
 import AddEditExpense from './components/Expense/AddEditExpense';
 import ExpenseFilter from './components/Expense/ExpenseFilter';
 
+const overAllProducts = [
+  {
+    id: 'av-1',
+    itemName: ' Pepsi',
+    cost: '25',
+    date: new Date(2019, 11, 28),
+  },
+  {
+    id: 'av-2',
+    itemName: ' Chips',
+    cost: '25',
+    date: new Date(2019, 10, 15),
+  },
+  { id: 'av-3', itemName: ' Fries', cost: '25', date: new Date(2022, 3, 12) },
+  {
+    id: 'av-4',
+    itemName: ' Gooday',
+    cost: '25',
+    date: new Date(2022, 3, 13),
+  },
+  {
+    id: 'av-4',
+    itemName: ' Gooday',
+    cost: '25',
+    date: new Date(2022, 3, 13),
+  },
+  {
+    id: 'av-4',
+    itemName: ' Gooday',
+    cost: '25',
+    date: new Date(2022, 5, 13),
+  },
+  {
+    id: 'av-4',
+    itemName: ' Gooday',
+    cost: '25',
+    date: new Date(2022, 5, 13),
+  },
+  {
+    id: 'av-4',
+    itemName: ' Gooday',
+    cost: '25',
+    date: new Date(2022, 2, 13),
+  },
+  {
+    id: 'av-4',
+    itemName: ' Gooday',
+    cost: '25',
+    date: new Date(2022, 2, 13),
+  },
+  {
+    id: 'av-4',
+    itemName: ' Gooday',
+    cost: '25',
+    date: new Date(2022, 1, 13),
+  },
+  { id: 'av-5', itemName: ' Pizza', cost: '25', date: new Date(2022, 3, 3) },
+];
+
 const App = () => {
   // default Value
   const [expenseData, setExpenseData] = useState({});
   const [selectedYear, setSelectedYear] = useState(new Date().getFullYear());
-  const [productsInfo, setProductInfo] = useState([
-    {
-      id: 'av-1',
-      itemName: ' Pepsi',
-      cost: '25',
-      date: new Date(2019, 11, 28),
-    },
-    {
-      id: 'av-2',
-      itemName: ' Chips',
-      cost: '25',
-      date: new Date(2019, 10, 15),
-    },
-    { id: 'av-3', itemName: ' Fries', cost: '25', date: new Date(2022, 3, 12) },
-    {
-      id: 'av-4',
-      itemName: ' Gooday',
-      cost: '25',
-      date: new Date(2022, 3, 13),
-    },
-    {
-      id: 'av-4',
-      itemName: ' Gooday',
-      cost: '25',
-      date: new Date(2022, 3, 13),
-    },
-    {
-      id: 'av-4',
-      itemName: ' Gooday',
-      cost: '25',
-      date: new Date(2022, 5, 13),
-    },
-    {
-      id: 'av-4',
-      itemName: ' Gooday',
-      cost: '25',
-      date: new Date(2022, 5, 13),
-    },
-    {
-      id: 'av-4',
-      itemName: ' Gooday',
-      cost: '25',
-      date: new Date(2022, 2, 13),
-    },
-    {
-      id: 'av-4',
-      itemName: ' Gooday',
-      cost: '25',
-      date: new Date(2022, 2, 13),
-    },
-    {
-      id: 'av-4',
-      itemName: ' Gooday',
-      cost: '25',
-      date: new Date(2022, 1, 13),
-    },
-    { id: 'av-5', itemName: ' Pizza', cost: '25', date: new Date(2022, 3, 3) },
-  ]);
+  const [productsInfo, setProductInfo] = useState([]);
+  const [productsOverAll, setProductsOverAll] = useState(overAllProducts);
 
   const [editInfo, setEditInfo] = useState(null);
   const [editEnabled, setEditEnabled] = useState(false);
@@ -73,7 +76,7 @@ const App = () => {
   const addEditExpenseHandler = (product, edit = false) => {
     if (edit) {
       if (product && product.title.length && product.cost.length) {
-        setProductInfo((prev) => {
+        setProductsOverAll((prev) => {
           const editedInfo = prev;
           const founProd = editedInfo.findIndex((o) => o.id === product.id);
           editedInfo[founProd] = {
@@ -90,7 +93,7 @@ const App = () => {
       setEditInfo(null);
     } else {
       if (product && product.title.length && product.cost.length) {
-        setProductInfo((prev) => {
+        setProductsOverAll((prev) => {
           return [
             ...prev,
             {
@@ -108,8 +111,8 @@ const App = () => {
       setEditInfo(null);
     }
   };
-  
-  const evaluateExpensesByYear = useCallback( () => {
+
+  const evaluateExpensesByYear = useCallback(() => {
     let expenseInfo = {};
     const yearInfo = productsInfo.filter((o) => {
       return o.date.getFullYear().toString() === selectedYear.toString();
@@ -129,8 +132,23 @@ const App = () => {
       }
     });
     setExpenseData({ ...expenseInfo, overAllExpense });
-  } , [productsInfo, selectedYear]);
+    setProductInfo(yearInfo);
+  }, [productsInfo, selectedYear]);
 
+  useEffect(() => {
+    if (productsOverAll.length) {
+      console.log('The products over All : ', productsOverAll);
+      const dataBySelectedYear = productsOverAll.filter(
+        (o) => o.date.getFullYear().toString() === selectedYear.toString()
+      );
+
+      console.log(
+        'The Products Over all Filtered Data is : ',
+        dataBySelectedYear
+      );
+      setProductInfo(dataBySelectedYear);
+    }
+  }, [productsOverAll, selectedYear]);
 
   useEffect(() => {
     if (productsInfo.length) {

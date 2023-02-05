@@ -14,7 +14,7 @@ const ExpensesList = ({ productsInfo, editHandler }) => {
             editHandler={editHandler}
           />
         );
-      })}
+      })}{' '}
     </div>
   );
 };
