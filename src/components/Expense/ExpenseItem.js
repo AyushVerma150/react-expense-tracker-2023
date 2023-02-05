@@ -65,7 +65,7 @@ const ExpenseItem = ({
             // minWidth: '25%',
           }}
         >
-          <div style={{ padding: "15px" }}>
+          <div style={{ padding: "10px" }}>
             <span
               style={{
                 fontSize: "14px",
