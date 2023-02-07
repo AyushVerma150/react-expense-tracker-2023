@@ -68,8 +68,8 @@ const AddEditExpense = ({
                 fontWeight: "300",
               }}
             >
-              Enter New Product Details{" "}
-            </h3>{" "}
+              Enter New Product Details
+            </h3>
             <div
               style={{
                 display: "flex",
@@ -79,7 +79,7 @@ const AddEditExpense = ({
                 padding: "10px 10px",
               }}
             >
-              <label style={{ fontWeight: "600" }}> Name </label>{" "}
+              <label style={{ fontWeight: "600" }}> Name </label>
               <input
                 name="title"
                 onChange={onChangeHandler}
@@ -94,7 +94,7 @@ const AddEditExpense = ({
                 type={"text"}
                 autoFocus
               />
-            </div>{" "}
+            </div>
             <div
               style={{
                 display: "flex",
@@ -104,7 +104,7 @@ const AddEditExpense = ({
                 padding: "10px 10px",
               }}
             >
-              <label style={{ fontWeight: "600" }}> Cost </label>{" "}
+              <label style={{ fontWeight: "600" }}> Cost </label>
               <input
                 name="cost"
                 onChange={(e) => {
